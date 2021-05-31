@@ -36,12 +36,23 @@ class RandomHorizontalFlip(object):
         return image, target
 
 class Resize(object):
-    """等比例缩放图像并填充"""
-    def __call__(self, image, target, size:int = 300):
-        ratio = size/max(image.size)
-        img1 = F.resize(image, int(min(image.size)*ratio))
-        image = F.pad(img1, [0, 0, size - img1.size[0], size - img1.size[1]])
-        target["boxes"] = target["boxes"]*ratio
+    def __init__(self, ispad:bool=True, size:int=300):
+        self.ispad = ispad
+        self.size = size
+
+    def __call__(self, image, target):
+        if self.ispad:
+            ratio = self.size/max(image.size)
+            img1 = F.resize(image, int(min(image.size)*ratio))
+            image = F.pad(img1, [0, 0, self.size - img1.size[0], self.size - img1.size[1]])
+            target["boxes"] = target["boxes"]*ratio
+        else:
+            w_ratio, h_ratio = self.size/image.size[1], self.size/image.size[0]
+            image = F.resize(image, (self.size, self.size))
+            target["boxes"][:, [0, 2]] = target["boxes"][:, [0, 2]]*h_ratio
+            target["boxes"][:, [1, 3]] = target["boxes"][:, [1, 3]]*w_ratio
         return image, target
+
+
 
 

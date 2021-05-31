@@ -38,7 +38,7 @@ def random_draw(dataset):
     plt.savefig("figure" + now  + ".jpg")
 
 if __name__ == "__main__":
-    compose_transforms = transforms.Compose([transforms.Resize(), 
+    compose_transforms = transforms.Compose([transforms.Resize(ispad=True), 
                                             transforms.ToTensor(), 
                                             transforms.RandomHorizontalFlip()])
     dw_dataset = my_dataset.DwDataset("/home/qingren/Project/Tianchi_dw/Dataset",
