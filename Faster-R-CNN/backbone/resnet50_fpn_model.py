@@ -8,7 +8,7 @@ from torch.jit.annotations import List, Dict
 from torch.nn import parameter
 from torch.nn.modules.linear import Identity
 
-from future_pyramid_network import FeaturePyramidNetwork, LastLevelMaxPool
+from backbone.future_pyramid_network import FeaturePyramidNetwork, LastLevelMaxPool
 
 class ResBlock(nn.Module):
     expansion = 4
@@ -28,7 +28,7 @@ class ResBlock(nn.Module):
         self.bn2 = norm_layer(out_channel)
         
         self.conv3 = nn.Conv2d(in_channels=out_channel, out_channels=out_channel * self.expansion,
-                                kernel_size=3, stride=1, bias=False)
+                                kernel_size=1, stride=1, bias=False)
         self.bn3 = norm_layer(out_channel * self.expansion)
         self.relu = nn.ReLU(inplace=True)
         
@@ -40,15 +40,15 @@ class ResBlock(nn.Module):
             identity = self.downsample(x)
         
         out = self.conv1(x)
-        out = self.bn1(x)
-        out = self.relu(x)
+        out = self.bn1(out)
+        out = self.relu(out)
 
-        out = self.conv2(x)
-        out = self.bn2(x)
-        out = self.relu(x)
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu(out)
         
-        out = self.conv3(x)
-        out = self.bn3(x)
+        out = self.conv3(out)
+        out = self.bn3(out)
         
         out += identity
         out = self.relu(out)
@@ -81,7 +81,7 @@ class ResNet(nn.Module):
         
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal(m.weight, model='fanout', nonlinearity='relu')
+                nn.init.kaiming_normal(m.weight, mode='fan_out', nonlinearity='relu')
 
     def _make_layer(self, block, channel, block_num, stride=1):
         norm_layer = self._norm_layer
@@ -185,7 +185,7 @@ class BackboneWithFPN(nn.Module):
         self.fpn = FeaturePyramidNetwork(
             in_channel_list=in_channels_list,
             out_channels=out_channels,
-            extral_blocks=extral_blocks,
+            extra_blocks=extral_blocks,
         )
 
         self.out_channels = out_channels
@@ -237,13 +237,8 @@ def resnet50_fpn_backbone(pretrain_path="",
     in_channels_stage2 = resnet_backbone.in_channel // 8 # 2048//8=256
     in_channels_list = [in_channels_stage2*2**(i-1) for i in returned_layers]
     out_channels = 256
+
     return BackboneWithFPN(resnet_backbone, return_layers, in_channels_list, out_channels, extra_block)
-
-
-if __name__ == "__main__":
-    net = resnet50_fpn_backbone()
-    from torchkeras import summary
-    print(summary(net, (64, 300, 300, 3)))
 
 
 

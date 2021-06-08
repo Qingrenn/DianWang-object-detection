@@ -72,7 +72,7 @@ class FeaturePyramidNetwork(nn.Module):
 
         # first append the lowest resolution feature
         last_inner = self.get_result_from_inner_blocks(x[-1], -1)
-        results.append(self.get_result_from_layer_blocks(last_inner))
+        results.append(self.get_result_from_layer_blocks(last_inner, -1))
 
         # upsample
         for idx in range(len(x)-2, -1, -1):

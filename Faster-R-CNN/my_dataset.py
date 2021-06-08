@@ -79,8 +79,8 @@ class DwDataset(Dataset):
                 lines = annotations.readlines()
                 for row in txt.readlines():
                     row = int(row.strip())
-                    assert row < 2548, "[ERROR] row_index {} is out of range".format(row)
-                    self.img_list.append(DwImage(lines[row].strip()))
+                    assert row < 2549, "[ERROR] row_index {} is out of range".format(row)
+                    self.img_list.append(DwImage(lines[row-1].strip()))
                         
         
     def __len__(self):
