@@ -2,20 +2,22 @@ import os
 from collections import OrderedDict
 
 import torch
+from torch.functional import norm
 import torch.nn as nn
 from torch.jit.annotations import List, Dict
+from torch.nn import parameter
 from torch.nn.modules.linear import Identity
-from torchvision.ops.misc import FrozenBatchNorm2d
 
-from .future_pyramid_network import FeaturePyramidNetwork, LastLevelMaxPool
+from future_pyramid_network import FeaturePyramidNetwork, LastLevelMaxPool
 
 class ResBlock(nn.Module):
     expansion = 4
     
-    def __init__(self, in_channel, out_channel, stride=1, downsample=None, norm_layer=None):
+    def __init__(self, in_channel, out_channel, stride=1, downsample=None):
         super(ResBlock, self).__init__()
-        if norm_layer is None:
-            norm_layer = nn.BatchNorm2d
+        
+        # batchnorm is learnable
+        norm_layer = nn.BatchNorm2d
         
         self.conv1 = nn.Conv2d(in_channels=in_channel, out_channels=out_channel,
                                 kernel_size=1, stride=1, bias=False)
@@ -55,11 +57,11 @@ class ResBlock(nn.Module):
 
 class ResNet(nn.Module):
 
-    def __init__(self, block, blocks_num, num_classes=1000, include_top=True, norm_layer=None):
+    def __init__(self, block, blocks_num, num_classes=1000, include_top=True):
         super(ResNet, self).__init__()
 
-        if norm_layer is None:
-            norm_layer = nn.BatchNorm2d
+        norm_layer = nn.BatchNorm2d
+        
         self._norm_layer = norm_layer
 
         self.include_top = include_top
@@ -92,11 +94,11 @@ class ResNet(nn.Module):
         
         layers = []
         layers.append(block(self.in_channel, channel, downsample=downsample,
-                            stride=stride, norm_layer=norm_layer))
+                            stride=stride))
         self.in_channel = channel * block.expansion
         
         for _ in range(1, block_num):
-            layers.append(block(self.in_channel, channel, norm_layer=norm_layer))
+            layers.append(block(self.in_channel, channel))
 
         return nn.Sequential(*layers)
 
@@ -117,22 +119,6 @@ class ResNet(nn.Module):
             x = self.fc(x)
 
         return x
-
-def overwrite_eps(model, eps):
-    """
-    This method overwrites the default eps values of all the
-    FrozenBatchNorm2d layers of the model with the provided value.
-    This is necessary to address the BC-breaking change introduced
-    by the bug-fix at pytorch/vision#2933. The overwrite is applied
-    only when the pretrained weights are loaded to maintain compatibility
-    with previous versions.
-    Args:
-        model (nn.Module): The model on which we perform the overwrite.
-        eps (float): The new value of eps.
-    """
-    for module in model.modules():
-        if isinstance(module, FrozenBatchNorm2d):
-            module.eps = eps
 
 
 class IntermediateLayerGetter(nn.ModuleDict):
@@ -208,4 +194,56 @@ class BackboneWithFPN(nn.Module):
         x = self.body(x)
         x = self.fpn(x)
         return x
+
+def resnet50_fpn_backbone(pretrain_path="",
+                            trainable_layers=3,
+                            returned_layers=None,
+                            extra_block=None):
+    """
+    pretrain_path: Resnet50预训练权重
+    norm_layer: batch较小使用BatchNorm2d
+    trainable_layers: 训练Resnet中的后多少层(1～5)
+    """
+    resnet_backbone = ResNet(ResBlock, [3, 4, 6, 3], include_top=False)
+
+    if pretrain_path != "":
+        assert os.path.exists(pretrain_path), "[ERROR] {} is not exist.".format(pretrain_path)
+        # load pretraining weigths
+        print(resnet_backbone.load_state_dict(torch.load(pretrain_path), strict=False))
+    
+    assert 0 <= trainable_layers <= 5, "[ERROR] trainable_layers {} is out of range".format(trainable_layers)
+    layers2train = ['layer4', 'layer3', 'layer2', 'layer1', 'conv1'][:trainable_layers]
+    
+    # 如果训练所有层，那么bn1也要加入
+    if trainable_layers == 5:
+        layers2train.append("bn1")
+
+    # freeze layers
+    for name, parameter in resnet_backbone.named_children():
+        if all([not name.startswith(layer) for layer in layers2train]):
+            parameter.requires_grad_(False)
+    
+    if extra_block is None:
+        extra_block = LastLevelMaxPool()
+
+    if returned_layers is None:
+        returned_layers = [1,2,3,4]
+    
+    assert min(returned_layers) > 0 and max(returned_layers) < 5, "[ERROR] returned_layers is out of range"
+    
+     # return_layers = {'layer1': '0', 'layer2': '1', 'layer3': '2', 'layer4': '3'}
+    return_layers = {f'layer{k}': str(v) for v, k in enumerate(returned_layers)}
+
+    in_channels_stage2 = resnet_backbone.in_channel // 8 # 2048//8=256
+    in_channels_list = [in_channels_stage2*2**(i-1) for i in returned_layers]
+    out_channels = 256
+    return BackboneWithFPN(resnet_backbone, return_layers, in_channels_list, out_channels, extra_block)
+
+
+if __name__ == "__main__":
+    net = resnet50_fpn_backbone()
+    from torchkeras import summary
+    print(summary(net, (64, 300, 300, 3)))
+
+
 
