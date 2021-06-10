@@ -123,5 +123,15 @@ class AnchorsGenerator(nn.Module):
 
         # 根据设置的sizes和aspect_ratios设置anchors模板
         self.set_cell_anchors(dtype, device)
+        
+        anchors_over_all_feature_maps = self.cached_grid_anchors(grid_sizes, strides)
+
+        anchors = torch.jit.annonate(List[List[torch.Tensor]], [])
+        for i, (imgae_height, image_width) in enumerate(image_list.image_sizes):
+            anchors_in_image = []
+            for anchors_per_feature_map in anchors_over_all_feature_maps:
+                anchors_in_image.append(anchors_per_feature_map)
+
+
 
         
