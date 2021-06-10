@@ -1,0 +1,4 @@
+2021-06-10 15:20:08,758 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/3229e65d_386d_4848_9ee0_efac8c9584f1.jpg no items 
+2021-06-10 15:20:08,835 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/8256a92d_17f0_4bbd_8bc0_781cdd537794.JPG format not JPEG, is MPO
+2021-06-10 15:20:09,176 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/4bb92101_f035_4daa_a3b6_f9e8e553ed18.JPG format not JPEG, is MPO
+2021-06-10 15:20:09,660 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/44cc32cb_8f19_4dcc_b046_1b20cf97f930.JPG format not JPEG, is None
