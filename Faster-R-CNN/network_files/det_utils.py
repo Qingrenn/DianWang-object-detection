@@ -2,7 +2,7 @@ import torch
 import math
 from typing import List, Tuple
 from torch import Tensor
-from torch._C import dtype
+
 
 class BalancedPositiveNegativeSampler(object):
     """
@@ -83,6 +83,7 @@ class BalancedPositiveNegativeSampler(object):
 
         return pos_idx, neg_idx
 
+
 @torch.jit._script_if_tracing
 def encode_boxes(reference_boxes, proposals, weights):
     # type: (torch.Tensor, torch.Tensor, torch.Tensor) -> torch.Tensor
@@ -137,23 +138,54 @@ def encode_boxes(reference_boxes, proposals, weights):
 
 
 class BoxCoder(object):
-    def __init__(self, weigths, bbox_xform_clip=math.log(1000. / 16)):
+    """
+    This class encodes and decodes a set of bounding boxes into
+    the representation used for training the regressors.
+    """
+
+    def __init__(self, weights, bbox_xform_clip=math.log(1000. / 16)):
         # type: (Tuple[float, float, float, float], float) -> None
-            self.weigths = weigths
-            self.bbox_xform_clip = bbox_xform_clip
-    
+        """
+        Arguments:
+            weights (4-element tuple)
+            bbox_xform_clip (float)
+        """
+        self.weights = weights
+        self.bbox_xform_clip = bbox_xform_clip
+
     def encode(self, reference_boxes, proposals):
         # type: (List[Tensor], List[Tensor]) -> List[Tensor]
+        """
+        结合anchors和与之对应的gt计算regression参数
+        Args:
+            reference_boxes: List[Tensor] 每个proposal/anchor对应的gt_boxes
+            proposals: List[Tensor] anchors/proposals
+
+        Returns: regression parameters
+
+        """
+        # 统计每张图像的anchors个数，方便后面拼接在一起处理后在分开
+        # reference_boxes和proposal数据结构相同
         boxes_per_image = [len(b) for b in reference_boxes]
         reference_boxes = torch.cat(reference_boxes, dim=0)
         proposals = torch.cat(proposals, dim=0)
+
+        # targets_dx, targets_dy, targets_dw, targets_dh
         targets = self.encode_single(reference_boxes, proposals)
         return targets.split(boxes_per_image, 0)
 
     def encode_single(self, reference_boxes, proposals):
+        """
+        Encode a set of proposals with respect to some
+        reference boxes
+
+        Arguments:
+            reference_boxes (Tensor): reference boxes
+            proposals (Tensor): boxes to be encoded
+        """
         dtype = reference_boxes.dtype
         device = reference_boxes.device
-        weights = torch.as_tensor(self.weigths, dtype=dtype, device=device)
+        weights = torch.as_tensor(self.weights, dtype=dtype, device=device)
         targets = encode_boxes(reference_boxes, proposals, weights)
 
         return targets
@@ -360,6 +392,7 @@ class Matcher(object):
         pre_inds_to_update = gt_pred_pairs_of_highest_quality[1]
         # 保留该anchor匹配gt最大iou的索引，即使iou低于设定的阈值
         matches[pre_inds_to_update] = all_matches[pre_inds_to_update]
+
 
 def smooth_l1_loss(input, target, beta: float = 1. / 9, size_average: bool = True):
     """
