@@ -61,7 +61,39 @@ def train_one_epoch(model, optimizer, data_loader, device, epoch,
 
     return mloss, now_lr
 
+@torch.no_grad()
+def validate(model, data_loader, device):
+    model.eval()
+    cpu_device = torch.device("cpu")
 
+    metric_logger = utils.MetricLogger(delimiter="  ")
+    header = "Test: "
+
+    for image, targets in metric_logger.log_every(data_loader, 100, header):
+        image = list(img.to(device) for img in image)
+
+        model_time = time.time()
+        outputs =  model(image)
+
+        outputs = [{k:v.to(cpu_device) for k, v in t.items()} for t in outputs]
+        model_time = time.time() - model_time
+
+        res = {target["image_id"].item(): output for target, output in zip(targets, outputs)}
+        
+        print(res)
+    
+    print("validate_tst is OK")
+
+def metric_func(targets, preds):
+    pass
+
+
+        
+        
+        
+    
+
+"""
 @torch.no_grad()
 def evaluate(model, data_loader, device):
     n_threads = torch.get_num_threads()
@@ -71,11 +103,11 @@ def evaluate(model, data_loader, device):
     model.eval()
     metric_logger = utils.MetricLogger(delimiter="  ")
     header = "Test: "
-
+    
     coco = get_coco_api_from_dataset(data_loader.dataset)
     iou_types = _get_iou_types(model)
     coco_evaluator = CocoEvaluator(coco, iou_types)
-
+    
     for image, targets in metric_logger.log_every(data_loader, 100, header):
         image = list(img.to(device) for img in image)
 
@@ -117,3 +149,4 @@ def _get_iou_types(model):
         model_without_ddp = model.module
     iou_types = ["bbox"]
     return iou_types
+"""

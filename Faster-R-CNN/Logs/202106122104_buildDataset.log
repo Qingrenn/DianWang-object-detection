@@ -1,0 +1,116 @@
+2021-06-12 21:04:11,665 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/f6a21be2_90b4_43b5_b28d_345116266789.jpg no items 
+2021-06-12 21:04:11,668 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/80b59d5b_cac3_461c_b198_d635f0e41a9b.jpg no items 
+2021-06-12 21:04:11,670 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/e7e33dc7_4ea5_4f09_86db_178ce3f12137.jpg no items 
+2021-06-12 21:04:11,670 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/30898b4d_fa04_4d71_a66e_134275640480.jpg no items 
+2021-06-12 21:04:11,689 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/a331ccfc_d3ea_49ee_b6d5_6795c200e68f.PNG no items 
+2021-06-12 21:04:11,690 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/a331ccfc_d3ea_49ee_b6d5_6795c200e68f.PNG format not JPEG, is PNG
+2021-06-12 21:04:11,789 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/64c7e3c6_abd2_45d8_9752_a59e55c6adcd.jpg no items 
+2021-06-12 21:04:11,821 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/c6d5035a_f6e4_41b8_8d55_38269f88bf14.jpg no items 
+2021-06-12 21:04:11,854 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/8558786a_34e9_478f_a402_df98f6f11aae.jpg format not JPEG, is None
+2021-06-12 21:04:11,887 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9d4a5bf7_7d66_47d7_be97_42448dc94e2e.JPG format not JPEG, is None
+2021-06-12 21:04:11,909 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6ab785c7_f763_4739_9d8e_93a0159254fa.JPG format not JPEG, is None
+2021-06-12 21:04:11,925 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/496d9f65_af00_4329_8414_96dd8ccca055.jpg no items 
+2021-06-12 21:04:11,941 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/e73daac0_8eee_4698_abac_353c8191e277.jpg no items 
+2021-06-12 21:04:12,005 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/52e02af6_f477_4969_964b_30307bf483bb.JPG format not JPEG, is MPO
+2021-06-12 21:04:12,042 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/7a12e5c8_a004_4039_900c_d3406880b4a9.jpg format not JPEG, is None
+2021-06-12 21:04:12,060 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/3a009fce_4e39_4d4e_8541_2764ba2f9a42.JPG format not JPEG, is None
+2021-06-12 21:04:12,084 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/55df39b2_0f26_45ab_a62c_6974e03af460.JPG format not JPEG, is None
+2021-06-12 21:04:12,139 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/d2f86afc_b71a_47f6_a548_5b8f0b58957b.JPG format not JPEG, is None
+2021-06-12 21:04:12,179 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/ac28f2ee_cbdf_4e3d_b6a9_adbe1c0abc76.jpg no items 
+2021-06-12 21:04:12,270 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/5ca8ec0c_9c78_44aa_aa4d_803d38c47144.jpg format not JPEG, is None
+2021-06-12 21:04:12,299 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/15be0155_bc20_4fa5_9f8f_fb8241e364f1.JPG format not JPEG, is None
+2021-06-12 21:04:12,302 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/5a3cac61_5269_4dc3_b64d_5c2cc6cf8490.jpg no items 
+2021-06-12 21:04:12,352 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/0cf017c0_9fe2_440c_ba86_44b6d4f87ad0.jpg format not JPEG, is None
+2021-06-12 21:04:12,365 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/127240ec_d4e5_49c0_93b8_8e1c30be5f6f.jpg no items 
+2021-06-12 21:04:12,421 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/365f5b01_667c_42b3_b66a_5b45fdd903bd.jpg format not JPEG, is None
+2021-06-12 21:04:12,480 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/92063dee_c5f6_4aa4_b32c_8a6a111e0d7c.jpg format not JPEG, is None
+2021-06-12 21:04:12,489 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/8a7772ae_f410_45e1_bc9b_e362b0c45a4a.JPG format not JPEG, is MPO
+2021-06-12 21:04:12,513 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9461838a_8031_4b7d_a7b3_5328ba7fa30e.JPG format not JPEG, is None
+2021-06-12 21:04:12,545 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/fe4f9d66_ca3f_4b3d_ae05_94ccee223f03.jpg no items 
+2021-06-12 21:04:12,567 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/5dbdf176_ce1e_4361_8f3c_93df6e5b139a.jpg format not JPEG, is None
+2021-06-12 21:04:12,599 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9d1367a3_cb59_43ec_9451_a8bf9a7e18ee.JPG format not JPEG, is None
+2021-06-12 21:04:12,681 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/84502b43_4e60_44c2_aa1f_996143fbd55c.jpg format not JPEG, is None
+2021-06-12 21:04:12,717 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/b62c52e4_293b_4393_8e79_213a370af7ac.jpg no items 
+2021-06-12 21:04:12,745 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/598c9e18_bc99_427b_a9e5_ccf137b8f53e.jpg no items 
+2021-06-12 21:04:12,762 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/ab15e841_d268_47ac_a4b3_78228c821626.JPG format not JPEG, is None
+2021-06-12 21:04:12,832 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/efe89580_2d4f_4093_b543_dfe2b566a0ad.jpg no items 
+2021-06-12 21:04:12,938 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/7bbfcf68_dbb2_4a68_82d1_044901970847.JPG format not JPEG, is MPO
+2021-06-12 21:04:13,007 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6e2cf8fd_32ff_465a_8258_46b979ae7a22.jpg format not JPEG, is None
+2021-06-12 21:04:13,032 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/0dcdeabe_3d7a_4a8b_b89b_1966e437fed4.JPG format not JPEG, is MPO
+2021-06-12 21:04:13,041 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/ab420b34_1ad9_4788_bf6d_d2d170e998f6.jpg format not JPEG, is None
+2021-06-12 21:04:13,079 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/4c340192_9f57_4b6b_828d_c82cc84b1cea.jpg format not JPEG, is None
+2021-06-12 21:04:13,124 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/b9726d0c_1911_41b2_a43d_9d22ba0ee8dd.jpg no items 
+2021-06-12 21:04:13,202 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/a840698d_4115_41e0_90f0_eee076bf3f22.jpg no items 
+2021-06-12 21:04:13,221 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9c60a38d_bb17_4004_866e_35b0c8da4064.JPG format not JPEG, is MPO
+2021-06-12 21:04:13,258 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/adcc3813_85a3_454a_a426_696f97835386.jpg no items 
+2021-06-12 21:04:13,291 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/706c9439_c652_4df5_82c1_f2535d6640be.jpg format not JPEG, is None
+2021-06-12 21:04:13,377 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/a22ff75c_9912_481c_9c86_4541b6fdb9d7.jpg format not JPEG, is None
+2021-06-12 21:04:13,426 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/caebd411_cb3d_46ca_a055_9688276157fb.jpg no items 
+2021-06-12 21:04:13,445 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/be065643_0eb7_4187_87d4_f38d5a91d0c5.jpg no items 
+2021-06-12 21:04:13,512 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/3fe03ab7_6671_4ed1_92c7_8e8cdf04c3df.JPG format not JPEG, is MPO
+2021-06-12 21:04:13,528 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/3edd03c7_9220_4717_9a19_51a33f267d15.jpg format not JPEG, is None
+2021-06-12 21:04:13,529 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/e9fe09e0_75b2_4a64_8b7d_08b11119df7e.jpg format not JPEG, is None
+2021-06-12 21:04:13,596 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/be3a3489_ea10_4e4c_914a_16bfc262bfd4.jpg no items 
+2021-06-12 21:04:13,637 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9ba17a79_67f3_4fb5_890a_97bf762ce9da.jpg no items 
+2021-06-12 21:04:13,688 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6820cd61_e7d0_4d53_9e12_e9744d9c7205.jpg no items 
+2021-06-12 21:04:13,693 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/2c7eb6c0_7ad1_4eff_b43e_4c0922c790e7.JPG format not JPEG, is None
+2021-06-12 21:04:13,766 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/a62667aa_3db4_4651_9163_94eae7ab9d18.jpg no items 
+2021-06-12 21:04:13,797 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/2d7e0695_b64f_481c_9d54_c502b62a8ade.jpg no items 
+2021-06-12 21:04:13,919 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6494758c_d693_455a_8b4b_01307035aef2.jpg no items 
+2021-06-12 21:04:13,923 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/a896ffa6_5239_45e9_b279_083eb11f50ab.jpg format not JPEG, is None
+2021-06-12 21:04:13,928 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/26128873_384d_4329_bfa9_6654c07495ae.jpg no items 
+2021-06-12 21:04:13,962 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/e1f847e3_7961_4c75_b7cc_a4af664e55a0.jpg format not JPEG, is None
+2021-06-12 21:04:13,977 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6a00f296_e824_433f_b375_bc8e901b05af.jpg no items 
+2021-06-12 21:04:14,061 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/432d63b3_ebbd_4e17_a6c4_b71de6a6854f.jpg format not JPEG, is None
+2021-06-12 21:04:14,083 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/907d85ec_6edc_4549_bda8_78b8f39955e5.jpg format not JPEG, is None
+2021-06-12 21:04:14,100 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/44e0d093_150a_4039_89fb_084f701768ca.jpg no items 
+2021-06-12 21:04:14,106 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/576bd27b_5dc2_4a8c_ba54_4c86c5a35931.JPG format not JPEG, is None
+2021-06-12 21:04:14,154 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/ca49ffa9_5b70_44da_8434_661a82caf74e.jpg no items 
+2021-06-12 21:04:14,257 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/5b5d449e_2bb4_434a_8d90_3bf5e74c2b2d.jpg format not JPEG, is None
+2021-06-12 21:04:14,260 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9fc48027_0554_4119_bc05_14877d6de6db.jpg format not JPEG, is None
+2021-06-12 21:04:14,265 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/70e83c29_9a44_4683_a192_f1381770c295.JPG format not JPEG, is None
+2021-06-12 21:04:14,295 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/7e6d1cd6_8afa_4be1_bab2_0061cced20e1.JPG format not JPEG, is MPO
+2021-06-12 21:04:14,306 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/50d7b1ac_1de3_4dcd_8d3a_f17de93012c9.JPG format not JPEG, is MPO
+2021-06-12 21:04:14,310 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/3ff79d25_a5be_4f0e_859a_18328630c3c8.jpg no items 
+2021-06-12 21:04:14,318 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/26d713f1_ff21_4046_bb57_c998c3a2ffd8.JPG format not JPEG, is None
+2021-06-12 21:04:14,412 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/064f7930_4311_4e9a_83ac_b117188cc04f.jpg format not JPEG, is None
+2021-06-12 21:04:14,473 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/0146577a_6221_4c48_b29c_eff27e0f6b87.JPG format not JPEG, is None
+2021-06-12 21:04:14,500 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/4aec2a4f_fc38_4959_8162_4c2e5f01ac91.jpg no items 
+2021-06-12 21:04:14,581 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/19282dac_afd2_4f28_8ae2_40799958c6f9.jpg format not JPEG, is None
+2021-06-12 21:04:14,633 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/41edc6be_1b98_4d24_983b_5443146d5a24.JPG format not JPEG, is None
+2021-06-12 21:04:14,684 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/31b826c5_577a_428d_b7c5_2c1e57418f6d.jpg format not JPEG, is None
+2021-06-12 21:04:14,798 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/568cd4b1_cec6_4f4a_ad0a_76290af6280e.jpg no items 
+2021-06-12 21:04:14,807 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/46e9b39c_5bba_4c4e_a0b4_abc7a4e2ebf9.JPG format not JPEG, is None
+2021-06-12 21:04:14,915 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/be393e23_ab64_4586_9c0d_9f0f87a7808c.JPG format not JPEG, is MPO
+2021-06-12 21:04:14,930 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/1f5a91b3_4899_4cc8_88c9_d761ae8de6dd.jpg no items 
+2021-06-12 21:04:15,017 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/40d715bf_408b_485f_8711_edb7beef32a4.jpg format not JPEG, is None
+2021-06-12 21:04:15,032 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/4fb3c4e3_a413_479c_852b_bd8f12c6a2a8.JPG format not JPEG, is None
+2021-06-12 21:04:15,049 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/c638099d_2a98_4d7f_8284_b51d72409d83.JPG format not JPEG, is None
+2021-06-12 21:04:15,075 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/f9f5beda_aed1_4083_9182_3558e1d9a938.jpg no items 
+2021-06-12 21:04:15,089 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/d6a3aa8d_04c8_4bdf_ae1b_45fac359588a.jpg no items 
+2021-06-12 21:04:15,099 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/52836c0a_c825_4c68_8126_96fd561f047a.jpg format not JPEG, is None
+2021-06-12 21:04:15,104 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/9fc91f6e_a5df_4f75_a71d_bdc6c55e1711.JPG format not JPEG, is MPO
+2021-06-12 21:04:15,179 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6ec04bb6_9b49_4d53_9265_c38e971af386.jpg format not JPEG, is None
+2021-06-12 21:04:15,207 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/170db991_c109_4e61_b927_892b72f1ad51.jpg no items 
+2021-06-12 21:04:15,221 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/2e7b4ba6_e4e3_4423_95df_81d13e061693.jpg no items 
+2021-06-12 21:04:15,221 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/2e7b4ba6_e4e3_4423_95df_81d13e061693.jpg format not JPEG, is PNG
+2021-06-12 21:04:15,233 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/8c8a8dfb_8871_4465_9f3e_b4d7e2a865c9.jpg no items 
+2021-06-12 21:04:15,270 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/e6d2f92b_9f8a_4122_9237_6211dcff8a55.jpg format not JPEG, is None
+2021-06-12 21:04:15,311 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/0511e5c3_8e57_45af_9bd7_3cda037bfb36.JPG format not JPEG, is MPO
+2021-06-12 21:04:15,503 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/4c0a8e62_0131_461e_9b7e_a3f06470af66.jpg no items 
+2021-06-12 21:04:15,511 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/5c990020_8a0d_45d5_bd25_bc9535e276ef.JPG format not JPEG, is None
+2021-06-12 21:04:15,521 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/adb965be_d13a_4bd9_82fd_a4eacf999309.jpg no items 
+2021-06-12 21:04:15,568 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/1c987a91_a85a_42ab_a17e_509f844754be.JPG format not JPEG, is None
+2021-06-12 21:04:15,638 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/cc93275c_1a23_4f23_ab11_84ccce22c24d.jpg format not JPEG, is None
+2021-06-12 21:04:15,683 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/2a33d45c_62d8_4e4b_be06_a9c05f726694.jpg no items 
+2021-06-12 21:04:15,701 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6acc3a06_e380_4a0b_b2d1_3e20a4ed25c3.jpg format not JPEG, is None
+2021-06-12 21:04:15,738 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/25bcbac8_178c_46dc_a1da_c53d172eef4c.png no items 
+2021-06-12 21:04:15,738 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/25bcbac8_178c_46dc_a1da_c53d172eef4c.png format not JPEG, is PNG
+2021-06-12 21:04:15,755 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/c46c422f_904e_443d_a0fb_85a2df08ef81.jpg no items 
+2021-06-12 21:04:15,781 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/e8948284_80b4_47ae_b331_6bf57c2baf7b.jpg format not JPEG, is None
+2021-06-12 21:04:15,927 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/10b454a1_38dc_4eda_8cd0_cc0b2f64c496.JPG format not JPEG, is None
+2021-06-12 21:04:16,037 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/721eca79_94fb_4cdb_9b66_ac6095baf4b9.jpg format not JPEG, is None
+2021-06-12 21:04:16,085 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/904a74df_e426_4f37_95c6_c8d81b6ff938.JPG format not JPEG, is None
+2021-06-12 21:04:16,087 - my_dataset.py[line:102] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/d1515bb1_41be_440f_a7f5_f317617ef05f.jpg no items 
+2021-06-12 21:04:16,296 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/66bf5cf6_06a9_4b44_bce1_04e25ad18f66.JPG format not JPEG, is None
+2021-06-12 21:04:16,320 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/660b62c2_6776_4082_80a6_425fd0eba34d.JPG format not JPEG, is None
