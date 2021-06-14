@@ -21,7 +21,7 @@ def create_model(num_classes, device):
     # https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth
 
 
-    weights_dict = torch.load("/home/qingren/Project/Tianchi_dw/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth", map_location=device)
+    weights_dict = torch.load("//home/lab/Python_pro/Tianchifasterrcnn_resnet50_fpn_coco-258fb6c6.pth", map_location=device)
     missing_keys, unexpected_keys = model.load_state_dict(weights_dict, strict=False)
     if len(missing_keys) != 0 or len(unexpected_keys) != 0:
         print("missing_keys: ", missing_keys)

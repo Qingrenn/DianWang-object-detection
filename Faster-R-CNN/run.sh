@@ -1,5 +1,5 @@
 #!/bin/bash
 
 python train.py \
---data-path /home/qingren/Project/Tianchi_dw/Dataset \
+--data-path /home/lab/Python_pro/Tianchi/Dataset \
 --num-classes 4 \
