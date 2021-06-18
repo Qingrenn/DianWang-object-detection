@@ -1,6 +1,0 @@
-2021-05-28 22:08:27,614 - my_dataset.py[line:48] - WARNING: 3_images/b73d1cdd_a771_4f84_9cea_972dcc60f14a.jpg no boxes, suggest delete
-2021-05-28 22:08:27,624 - my_dataset.py[line:48] - WARNING: 3_images/a11867eb_2f69_48ca_ab30_31f1d6088dde.jpg no boxes, suggest delete
-2021-05-28 22:08:27,809 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/1eaeaa87_8123_4f32_b483_01fb3980c368.JPG format not JPEG, is None
-2021-05-28 22:08:28,267 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/041d584b_472c_47f2_ad24_717f7e47618e.jpg format not JPEG, is None
-2021-05-28 22:08:28,500 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/4ba4c43a_d675_4a5b_8267_f64cb320efea.JPG format not JPEG, is None
-2021-05-28 22:08:28,685 - my_dataset.py[line:105] - WARNING: /home/qingren/Project/Tianchi_dw/Dataset/3_images/6e678655_184d_40c0_9f47_65b31eb00dfa.JPG format not JPEG, is None

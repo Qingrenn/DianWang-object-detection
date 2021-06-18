@@ -11,7 +11,7 @@ logger = logInit("buildDataset")
 
 class DwImage:
 
-    def __init__(self, csv_str):
+    def __init__(self, csv_str, row_id):
         para_list = csv_str.split(",",5)
         # self.sd_uid = para_list[0]
         # self.sd_add_date = para_list[1]
@@ -50,6 +50,7 @@ class DwImage:
         self.info['boxes'] = boxes
         self.info['labels'] = labels
         self.info['area'] = area
+        self.info['image_id'] = row_id
 
     def __str__(self):
         return "ImagePath:{}\nInfo:{}".format(self.image_path, self.target)
@@ -80,7 +81,7 @@ class DwDataset(Dataset):
                 for row in txt.readlines():
                     row = int(row.strip())
                     assert row < 2549, "[ERROR] row_index {} is out of range".format(row)
-                    self.img_list.append(DwImage(lines[row-1].strip()))
+                    self.img_list.append(DwImage(lines[row-1].strip(), row-1))
                         
         
     def __len__(self):
@@ -103,11 +104,13 @@ class DwDataset(Dataset):
         
         if image.format != "JPEG":
             logger.warning("{} format not JPEG, is {}".format(img_path, image.format))
+            image = image.convert('RGB')
 
         target = dict()
         target['boxes'] = torch.as_tensor(img_info['boxes'], dtype=torch.float32)
         target['labels'] = torch.as_tensor(img_info['labels'], dtype=torch.int64)
         target['area'] = torch.as_tensor(img_info['area'], dtype=torch.float32)
+        target['image_id'] = torch.as_tensor(img_info['image_id'], dtype=torch.int64)
 
         if self.transforms is not None:
             image, target = self.transforms(image, target)
@@ -117,6 +120,21 @@ class DwDataset(Dataset):
     @staticmethod
     def collate_fn(batch):
             return tuple(zip(*batch))
+
+    def coco_index(self, idx):
+        img_path = os.path.join(self.dataset_path, self.img_list[idx].image_path)
+        img_info = self.img_list[idx].info
+        image = Image.open(img_path)
+        data_height, data_width = image.size
+
+        target = dict()
+        target['boxes'] = torch.as_tensor(img_info['boxes'], dtype=torch.float32)
+        target['labels'] = torch.as_tensor(img_info['labels'], dtype=torch.int64)
+        target['area'] = torch.as_tensor(img_info['area'], dtype=torch.float32)
+        target['image_id'] = torch.as_tensor(img_info['image_id'], dtype=torch.int64)
+        target['iscrowd'] = torch.zeros(len(img_info['boxes']), dtype=torch.int64)
+        
+        return (data_height, data_width), target
 
 
 if __name__ == '__main__':

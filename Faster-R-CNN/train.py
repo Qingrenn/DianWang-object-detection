@@ -21,7 +21,7 @@ def create_model(num_classes, device):
     # https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth
 
 
-    weights_dict = torch.load("//home/lab/Python_pro/Tianchifasterrcnn_resnet50_fpn_coco-258fb6c6.pth", map_location=device)
+    weights_dict = torch.load("/home/lab/Python_pro/Tianchi/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth", map_location=device)
     missing_keys, unexpected_keys = model.load_state_dict(weights_dict, strict=False)
     if len(missing_keys) != 0 or len(unexpected_keys) != 0:
         print("missing_keys: ", missing_keys)
@@ -51,9 +51,8 @@ def main(parser_data):
     
     data_path = parser_data.data_path
    
-    compose_transforms = transforms.Compose([transforms.Resize(),
-                                                transforms.ToTensor(),
-                                                transforms.RandomHorizontalFlip()])
+    compose_transforms = transforms.Compose([transforms.ToTensor(),
+                                            transforms.RandomHorizontalFlip(0.5)])
     # load train data set
     train_data_set = DwDataset(data_path,
                             compose_transforms,
@@ -61,7 +60,7 @@ def main(parser_data):
 
     # 注意这里的collate_fn是自定义的，因为读取的数据包括image和targets，不能直接使用默认的方法合成batch
     batch_size = parser_data.batch_size
-    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 8])  # number of workers
+    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
     print('Using %g dataloader workers' % nw)
     train_data_loader = torch.utils.data.DataLoader(train_data_set,
                                                     batch_size=batch_size,
@@ -122,9 +121,9 @@ def main(parser_data):
         lr_scheduler.step()
 
         # evaluate on the test dataset
-        metric_info = utils.validate(model, val_data_set_loader, device=device)
+        metric_info = utils.evaluate(model, val_data_set_loader, device=device)
         
-        """
+        
         # write into txt
         with open(results_file, "a") as f:
             # 写入的数据包括metric指标还有loss和learning rate
@@ -141,9 +140,8 @@ def main(parser_data):
             'lr_scheduler': lr_scheduler.state_dict(),
             'epoch': epoch}
         torch.save(save_files, "./save_weights/resNetFpn-model-{}.pth".format(epoch))
-        """
+        
 
-"""
     # plot loss and lr curve
     if len(train_loss) != 0 and len(learning_rate) != 0:
         from plot_curve import plot_loss_and_lr
@@ -153,7 +151,7 @@ def main(parser_data):
     if len(val_map) != 0:
         from plot_curve import plot_map
         plot_map(val_map)
-"""
+
 
 if __name__ == "__main__":
     import argparse

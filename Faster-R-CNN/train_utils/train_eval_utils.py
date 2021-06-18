@@ -4,8 +4,8 @@ import time
 
 import torch
 
-# from .coco_utils import get_coco_api_from_dataset
-# from .coco_eval import CocoEvaluator
+from .coco_utils import get_coco_api_from_dataset
+from .coco_eval import CocoEvaluator
 import train_utils.distributed_utils as utils
 
 
@@ -81,19 +81,17 @@ def validate(model, data_loader, device):
         res = {target["image_id"].item(): output for target, output in zip(targets, outputs)}
         
         print(res)
+        
+        break
     
     print("validate_tst is OK")
+
+    return 0
 
 def metric_func(targets, preds):
     pass
 
 
-        
-        
-        
-    
-
-"""
 @torch.no_grad()
 def evaluate(model, data_loader, device):
     n_threads = torch.get_num_threads()
@@ -108,7 +106,7 @@ def evaluate(model, data_loader, device):
     iou_types = _get_iou_types(model)
     coco_evaluator = CocoEvaluator(coco, iou_types)
     
-    for image, targets in metric_logger.log_every(data_loader, 100, header):
+    for image, targets in metric_logger.log_every(data_loader, 50, header):
         image = list(img.to(device) for img in image)
 
         # 当使用CPU时，跳过GPU相关指令
@@ -149,4 +147,4 @@ def _get_iou_types(model):
         model_without_ddp = model.module
     iou_types = ["bbox"]
     return iou_types
-"""
+
