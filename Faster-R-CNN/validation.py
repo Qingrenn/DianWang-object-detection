@@ -89,7 +89,6 @@ def summarize(self, catId=None):
 
     return stats, print_info
 
-
 def main(parser_data):
     device = torch.device(parser_data.device if torch.cuda.is_available() else "cpu")
     print("Using {} device training.".format(device.type))
@@ -158,7 +157,6 @@ def main(parser_data):
             outputs = [{k: v.to(cpu_device) for k, v in t.items()} for t in outputs]
             res = {target["image_id"].item(): output for target, output in zip(targets, outputs)}
             
-            
             for i in range(len(outputs)):
                 jsontext = {'image_id': targets[i]['image_id'].item(), 'objs':[]}
                 for j in range(len(outputs[i]["labels"])):
@@ -199,21 +197,6 @@ def main(parser_data):
                         "mAP(IoU=0.5) for each category:",
                         print_voc]
         f.write("\n".join(record_lines))
-
-def reinfer(img):
-    boxes = img["boxes"]
-    labels = img["labels"]
-    scores = img["scores"]
-
-    bage_idxs = torch.where(labels==1)[0]
-    offground_idxs = torch.where(labels==2)[0]
-    for offground_idx in offground_idxs:
-        offground_box = boxes[offground_idx.item()]
-        # count iou
-        # if iou 
-        pass
-
-
 
 if __name__ == "__main__":
     import argparse
