@@ -1,15 +1,30 @@
 import json
 import os
-import datetime
-import tqdm
+from datetime import datetime
+from tqdm import tqdm
 
 def get_iou(box1, box2):
     area1 = (box1[2] - box1[0]) * (box1[3] - box1[1])
     area2 = (box2[2] - box2[0]) * (box2[3] - box2[1])
     x1,y1 = list(map(lambda b1,b2:max(b1,b2), box1[:2], box2[:2]))
     x2,y2 = list(map(lambda b1,b2:min(b1,b2), box1[2:], box2[2:]))
-    inter = abs((x1-x2) * (y1-y2))
-    iou = inter / (area1 + area2 - inter)
+    if x1 >= x2 or y1 >= y2:
+        return 0
+    else:
+        inter = (x2-x1) * (y2-y1)
+        iou = inter / (area1 + area2 - inter)
+    return iou
+
+def get_ovr(big, small):
+    area1 = (big[2] - big[0]) * (big[3] - big[1])
+    area2 = (small[2] - small[0]) * (small[3] - small[1])
+    x1,y1 = list(map(lambda b1,b2:max(b1,b2), big[:2], small[:2]))
+    x2,y2 = list(map(lambda b1,b2:min(b1,b2), big[2:], small[2:]))
+    if x1 >= x2 or y1 >= y2:
+        return 0
+    else:
+        inter = (x2-x1) * (y2-y1)
+        iou = inter / area2
     return iou
 
 def reinfer(img_info):
@@ -47,8 +62,7 @@ def reinfer(img_info):
     # 删除重复对象
     if len(remove_idxs) != 0:
         remove_idxs = set(remove_idxs)
-        idxs = [i for i in range(len(objs)) if i not in remove_idxs]
-        objs = objs[idxs]
+        objs = [objs[i] for i in range(len(objs)) if i not in remove_idxs]
         
         bage_idxs = []
         offground_idxs = []
@@ -76,8 +90,8 @@ def reinfer(img_info):
             for people_idx in people_idxs:
                 bage_box = objs[bage_idx]["bbox"]
                 people_box = objs[people_idx]["bbox"]
-                iou = get_iou(bage_box, people_box)
-                if iou > 0.01:
+                iou = get_ovr(people_box, bage_box)
+                if iou > 0.5 and objs[bage_idx]["score"] > 0.6:
                     guarder = {"category_id":1, "bbox":people_box, "score":objs[people_idx]["score"]}
                     new_objs.append(guarder)
     
@@ -88,7 +102,7 @@ def reinfer(img_info):
                 safebelt_box = objs[safebelt_idx]["bbox"]
                 people_box = objs[people_idx]["bbox"]
                 iou = get_iou(safebelt_box, people_box)
-                if iou > 0.01:
+                if iou > 0.01 and objs[safebelt_idx]["score"] > 0.5:
                     safebeltperson = {"category_id":2, "bbox":people_box, "score":objs[people_idx]["score"]}
                     new_objs.append(safebeltperson)
 
@@ -116,9 +130,10 @@ def main(parser_data):
         wf = open(result_name, "w")
     
     file_list = os.listdir(parser_data.pred_path)
+    jsondata_list = []
     
     for file in tqdm(file_list, desc="infer..."):
-        file_path = os.path.join(parser_data, file)
+        file_path = os.path.join(parser_data.pred_path, file.strip())
         img_info = {}
         with open(file_path) as f:
             img_info = json.load(f)
@@ -128,14 +143,15 @@ def main(parser_data):
             # submit
             if parser_data.submit:
                 for obj in img_info["objs"]:
-                    jsondata = {"image_id":image_id, "category_id":obj["category_id"], "bbox":obj["bbox"], "score":obj["score"]}
-                    json.dump(jsondata, wf)
+                    jsondata = {"image_id":image_id, "category_id":obj["category_id"], "bbox":[round(i) for i in obj["bbox"]], "score":round(obj["score"], 3)}
+                    jsondata_list.append(jsondata)
             else: # used for drawing
                 jsontext = json.dumps(img_info, indent=4, separators=(',', ': '))
                 with open('./reinfer_results/img' + str(image_id) + '.json', 'w') as f:
                     f.write(jsontext)
     
     if parser_data.submit:
+        json.dump(jsondata_list, wf)
         wf.close()
 
 
@@ -144,11 +160,11 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description=__doc__)
 
-    parser.add_argument('--pred-path', default='./pred_results', help='predicted result folder')
-    parser.add_argument('--submit', default=False, help="choose output format")
+    parser.add_argument('--pred_path', default='./test_results', help='predicted result folder')
+    parser.add_argument('--submit', default=True, help="choose output format")
 
     args = parser.parse_args()
     
-    assert os.path.exists(args.data_path), "[ERROR] can not find {}".format(args.data_path) 
+    assert os.path.exists(args.pred_path), "[ERROR] can not find {}".format(args.data_path) 
 
     main(args)

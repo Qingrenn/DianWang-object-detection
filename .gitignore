@@ -1,3 +1,6 @@
 Faster-R-CNN/pred_results/*
 Faster-R-CNN/save_weights/*
+Faster-R-CNN/test_results/*
+Faster-R-CNN/*.json
+Faster-R-CNN/reinfer_results/*
 Faster-R-CNN/Logs/*
