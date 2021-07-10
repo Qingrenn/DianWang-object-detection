@@ -128,7 +128,8 @@ def main(parser_data):
     # create model num_classes equal background + 20 classes
     # 注意，这里的norm_layer要和训练脚本中保持一致
     backbone = resnet50_fpn_backbone()
-    model = FasterRCNN(backbone=backbone, num_classes=parser_data.num_classes + 1, box_nms_thresh=0.3)
+    model = FasterRCNN(backbone=backbone, num_classes=parser_data.num_classes + 1, box_score_thresh=0.1, box_nms_thresh={1:0.3 ,2:0.1, 3:0.2, 4:0.1})
+    # model = FasterRCNN(backbone=backbone, num_classes=parser_data.num_classes + 1, box_nms_thresh=0.3)
 
     # 载入你自己训练好的模型权重
     weights_path = parser_data.weights
@@ -164,7 +165,7 @@ def main(parser_data):
                     obj_dict = {"label":label.numpy().tolist(), "bbox":bbox.numpy().tolist(), "score":score.numpy().tolist()}
                     jsontext["objs"].append(obj_dict)
                 jsondata = json.dumps(jsontext, indent=4, separators=(',', ': '))
-                with open("./pred_results/img" + str(targets[i]['image_id'].item()) + ".json",'w') as f:
+                with open("./pred_results3/img" + str(targets[i]['image_id'].item()) + ".json",'w') as f:
                     f.write(jsondata)
             
             coco_evaluator.update(res)

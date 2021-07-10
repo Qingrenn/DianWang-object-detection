@@ -61,7 +61,8 @@ class TestDataset(Dataset):
 
 def create_model(num_classes):
     backbone = resnet50_fpn_backbone()
-    model = FasterRCNN(backbone=backbone, num_classes=num_classes, rpn_score_thresh=0.5)
+    # model = FasterRCNN(backbone=backbone, num_classes=num_classes, rpn_score_thresh=0.5)
+    model = FasterRCNN(backbone=backbone, num_classes=num_classes,box_score_thresh=0.1,box_nms_thresh={1:0.2 ,2:0.1, 3:0.2, 4:0.1}, image_mean=[0.5000, 0.5051, 0.4928], image_std=[0.2478, 0.2489, 0.2645])
 
     return model
 
@@ -79,7 +80,7 @@ def main(parser_data):
     model = create_model(num_classes=5)
 
     # load train weights
-    train_weights = "./save_weights/resNetFpn-model-18.pth"
+    train_weights = "./save_weights/resNetFpn-model-14.pth"
     assert os.path.exists(train_weights), "{} file dose not exist.".format(train_weights)
     model.load_state_dict(torch.load(train_weights, map_location=device)["model"])
     model.to(device)

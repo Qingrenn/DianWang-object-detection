@@ -16,7 +16,7 @@ def create_model(num_classes, device):
     # trainable_layers包括['layer4', 'layer3', 'layer2', 'layer1', 'conv1']， 5代表全部训练
     backbone = resnet50_fpn_backbone(trainable_layers=3)
     # 训练自己数据集时不要修改这里的91，修改的是传入的num_classes参数
-    model = FasterRCNN(backbone=backbone, num_classes=91)
+    model = FasterRCNN(backbone=backbone, num_classes=91, box_nms_thresh={1:0.2 ,2:0.1, 3:0.2, 4:0.1}, image_mean=[0.5000, 0.5051, 0.4928], image_std=[0.2478, 0.2489, 0.2645])
     # 载入预训练模型权重
     # https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth
 

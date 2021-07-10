@@ -141,23 +141,30 @@ if __name__ == '__main__':
     import matplotlib.pyplot as plt
     import matplotlib.patches as patches
     from torch.utils.data import WeightedRandomSampler, DataLoader
+    from tqdm import tqdm
             
-    compose_transforms = transforms.Compose([transforms.Resize(),
-                                                transforms.ToTensor(),
-                                                transforms.RandomHorizontalFlip()])
+    # compose_transforms = transforms.Compose([transforms.Resize(),
+    #                                             transforms.ToTensor(),
+    #                                             transforms.RandomHorizontalFlip()])
+
+    compose_transforms = transforms.Compose([transforms.ToTensor()])
     
-    dw_dataset = DwDataset("/home/qingren/Project/Tianchi_dw/Dataset",
+    dw_dataset = DwDataset("/home/lab/Python_pro/Tianchi/Dataset",
                             compose_transforms,
                             "train.txt")
     dataloader = DataLoader(dataset=dw_dataset,
-                            batch_size=4,
-                            shuffle=True,
+                            batch_size=1,
+                            shuffle=False,
                             collate_fn=dw_dataset.collate_fn)
-
-    for images, targets in dataloader:
-        print("dataloader is OK")
-        print("batch size: {}\nimage size: {}\ntargets:\n{}".format(len(images), images[0].shape, targets))
-        break
+    mean = torch.zeros(3)
+    std = torch.zeros(3)
+    for images, targets in tqdm(dataloader):
+        for d in range(3):
+            mean[d] += images[0][d, :, :].mean()
+            std[d] += images[0][d, :, :].std()
+    mean.div_(len(dw_dataset))
+    std.div_(len(dw_dataset))
+    print("mean: {}\nstd: {}".format(mean, std))
     
 
 
