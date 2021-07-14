@@ -13,6 +13,8 @@ Cascade-RPN/inference/*
 Cascade-RPN/analysis/*_analysis/
 Cascade-RPN/WorkHome*/
 
+.vscode/
+
 # files
 Faster-R-CNN/*.png
 
