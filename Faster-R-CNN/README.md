@@ -1,7 +1,5 @@
 # [Faster-R-CNN](https://arxiv.org/abs/1506.01497)
 
----
-
 环境：
 
 - backbone：resnet50 + fpn
