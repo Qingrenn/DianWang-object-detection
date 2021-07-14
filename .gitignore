@@ -1,0 +1,24 @@
+# ignore floders
+Faster-R-CNN/__pycache__/
+Faster-R-CNN/backbone/__pycache__/
+Faster-R-CNN/network_files/__pycache__/
+Faster-R-CNN/train_utils/__pycache__/
+
+Faster-R-CNN/Logs/
+Faster-R-CNN/*_results*/
+Faster-R-CNN/save_weights/
+
+Cascade-RPN/Coco-Dataset/
+Cascade-RPN/inference/
+Cascade-RPN/analysis/*_analysis/
+Cascade-RPN/WorkHome*/
+
+# files
+Faster-R-CNN/*.png
+
+Faster-R-CNN/*.txt
+
+Faster-R-CNN/*.json
+!Faster-R-CNN/dianwang_classes.json
+
+!Cascade-RPN/inference/inference.py
