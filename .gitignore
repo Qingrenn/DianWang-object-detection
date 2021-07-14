@@ -9,7 +9,7 @@ Faster-R-CNN/*_results*/
 Faster-R-CNN/save_weights/
 
 Cascade-RPN/Coco-Dataset/
-Cascade-RPN/inference/
+Cascade-RPN/inference/*
 Cascade-RPN/analysis/*_analysis/
 Cascade-RPN/WorkHome*/
 
